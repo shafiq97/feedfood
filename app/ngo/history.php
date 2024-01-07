@@ -10,7 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $accountNo = mysqli_real_escape_string($connection, $_POST['accountNo']);
 
     // Fetch the food post history from the database
-    $query = "SELECT * FROM donation inner join food_posts on donation.foodPostId = food_posts.id inner join users on donation.userAccNo = users.accountNo where donation.userAccNo = '$accountNo'";
+    $query = "SELECT * FROM donation inner join food_posts on donation.foodPostId = food_posts.id inner join users on donation.userAccNo = users.accountNo";
     $result = mysqli_query($connection, $query);
 
     if ($result) {
@@ -26,10 +26,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'ZipCode' => $post['zip_code'],
           'Status' => $post['status'],
           'CurrentTime' => $post['created_at'], // Assuming created_at is the relevant timestamp
-          'Package' => $post['package'],
+          'Package' => $post['package'], // Assuming created_at is the relevant timestamp
           'DonorName' => $post['fname'] . " " .$post['lname'], // Assuming created_at is the relevant timestamp
           'ImgUrl' => $post['imgUrl'], // Assuming created_at is the relevant timestamp
-          'DonationId' => $post['donationId'],  // Assuming created_at is the relevant timestamp
+          'DonationId' => $post['donationId'], // Assuming created_at is the relevant timestamp
         ];
       }, $foodPosts);
 

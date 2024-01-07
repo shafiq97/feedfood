@@ -4,10 +4,11 @@ include '../connect.php'; // Include your database connection script
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['volunteerId'], $_POST['foodId'])) {
     $volunteerId = $_POST['volunteerId'];
     $foodId = $_POST['foodId'];
+    $package = $_POST['selectedPackage'];
 
     // Prepare SQL query to insert the donation record
-    $stmt = $connection->prepare("INSERT INTO donation (userAccNo, foodPostId) VALUES (?, ?)");
-    $stmt->bind_param("si", $volunteerId, $foodId); // Assuming both IDs are integers
+    $stmt = $connection->prepare("INSERT INTO donation (userAccNo, foodPostId, package) VALUES (?, ?, ?)");
+    $stmt->bind_param("sis", $volunteerId, $foodId, $package); // Assuming both IDs are integers
 
     if ($stmt->execute()) {
         $response = ['success' => true, 'message' => 'Donation recorded successfully.'];

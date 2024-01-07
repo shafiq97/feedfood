@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $accountNo = isset($_POST['SenderAccountNo']) ? $_POST['SenderAccountNo'] : false;
 
   // Fetch pending food requests from the 'food_posts' table where the status is 'new'
-  $query = "SELECT * FROM food_posts WHERE status='pending'";
+  $query = "SELECT * FROM donation inner join users on users.accountNo = donation.userAccNo inner join food_posts on food_posts.id = donation.foodPostId WHERE donation.status='pending'";
 
   // Prepare the statement to avoid SQL injection
   if ($stmt = mysqli_prepare($connection, $query)) {
