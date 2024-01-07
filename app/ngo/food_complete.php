@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   $accountNo = isset($_POST['SenderAccountNo']) ? $_POST['SenderAccountNo'] : false;
 
   // Fetch pending food requests from the 'food_posts' table where the status is 'new'
-  $query = "SELECT * FROM food_posts WHERE status='pending'";
+  $query = "SELECT * FROM food_posts WHERE status='completed'";
 
   // Prepare the statement to avoid SQL injection
   if ($stmt = mysqli_prepare($connection, $query)) {
