@@ -30,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'DonorName' => $post['fname'] . " " .$post['lname'], // Assuming created_at is the relevant timestamp
           'ImgUrl' => $post['imgUrl'], // Assuming created_at is the relevant timestamp
           'DonationId' => $post['donationId'], // Assuming created_at is the relevant timestamp
+          'DonorEmail' => $post['email'], 
         ];
       }, $foodPosts);
 
