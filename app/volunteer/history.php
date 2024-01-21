@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           'Address' => $post['address'],
           'ZipCode' => $post['zip_code'],
           'Status' => $post['status'],
-          'CurrentTime' => $post['created_at'], // Assuming created_at is the relevant timestamp
+          'CurrentTime' => $post['created_date'], // Assuming created_at is the relevant timestamp
           'Package' => $post['package'],
           'DonorName' => $post['fname'] . " " .$post['lname'], // Assuming created_at is the relevant timestamp
           'ImgUrl' => $post['imgUrl'], // Assuming created_at is the relevant timestamp
